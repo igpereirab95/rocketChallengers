@@ -20,7 +20,7 @@ def create_task():
     new_task = Task(id=task_id_control, title=data.get("title"), description=data.get("description", "")) # pode ter um segundo parametro com string vazia para setar sem alguma informacao
     task_id_control += 1
     tasks.append(new_task)
-    return jsonify({"message": "Nova tarefa criada com sucesso"})
+    return jsonify({"message": "Nova tarefa criada com sucesso", "id": new_task.id}) # id vai servir pra rastrear
 
 # recuperar a listagem e/ou um uníco registro
 @app.route('/tasks', methods=['GET']) 
